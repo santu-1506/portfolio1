@@ -21,28 +21,6 @@ if ($('.santuelement').length) {
     });
 }
 
-// Email JS
-var myform = $("form#myform");
-myform.submit(function(event){
-  event.preventDefault();
-
-  var service_id = "website";
-  var template_id = "contact";
-
-  myform.find("button").text("Sending...");
-  emailjs.sendForm(service_id,template_id,myform[0])
-    .then(function(){ 
-      alert("Sent!");
-       myform.find("button").text("Send");
-       document.getElementById("myform").reset();
-    }, function(err) {
-       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
-       myform.find("button").text("Send");
-    });
-  return false;
-});
-
-
 !(function($) {
   "use strict";
 
