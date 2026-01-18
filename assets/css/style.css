@@ -316,7 +316,9 @@ section {
   bottom: 100%;
   opacity: 0;
   transition: ease-in-out 0.4s;
-  z-index: 2;
+  z-index: -1;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 section.section-show {
@@ -324,6 +326,9 @@ section.section-show {
   bottom: auto;
   opacity: 1;
   padding-bottom: 45px;
+  z-index: 2;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 /* Make first section visible on page load */
@@ -332,11 +337,68 @@ section:first-of-type {
   bottom: auto;
   opacity: 1;
   padding-bottom: 45px;
+  z-index: 2;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 section .container {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 30px;
+  background: rgba(17, 34, 64, 0.95) !important;
+  padding: 40px !important;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Fix for About Section */
+.about {
+  padding: 80px 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.about .about-me.container {
+  background: rgba(17, 34, 64, 0.95);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Fix for Resume Section */
+.resume {
+  padding: 80px 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.resume .container {
+  background: rgba(17, 34, 64, 0.95);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Fix for Projects Section */
+.projects {
+  padding: 80px 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.projects .container {
+  background: rgba(17, 34, 64, 0.95);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Fix for Contact Section */
+.contact {
+  padding: 100px 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.contact .container {
+  background: rgba(17, 34, 64, 0.95);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -974,6 +1036,27 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+
+/* Background fix for all sections with backdrop filter */
+#about .about-me.container,
+#resume .container,
+#projects .container,
+#contact .container {
+  background: rgba(10, 25, 47, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 50px 30px !important;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+/* Add some spacing between sections */
+section {
+  margin-bottom: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 /*<--Pre Loader-->*/
