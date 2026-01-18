@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>VenkataSantosh | Portfolio</title>
+  <meta content="Portfolio of Santu, a Computer Science student at KMIT" name="description">
+  <meta content="A.VenkataSantosh, KMIT, Portfolio, AI, MERN Stack, Deep Learning" name="keywords">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,400;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    /* --- RESUME BUTTON --- */
+    .btn-resume {
+      display: inline-block;
+      padding: 12px 30px;
+      border: 1px solid #64ffda;
+      color: #64ffda;
+      border-radius: 4px;
+      font-family: "Fira Code", monospace;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: transparent;
+      margin-bottom: 30px;
+    }
+    .btn-resume:hover {
+      background: rgba(100, 255, 218, 0.1);
+      color: #64ffda;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+    .btn-resume i { margin-right: 8px; }
+
+    /* --- PROFESSIONAL PROJECT CARDS --- */
+    .project-card {
+        background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1a2744 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 8s ease infinite;
+        padding: 2rem;
+        border-radius: 6px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.3s cubic-bezier(0.645,0.045,0.355,1);
+        box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid transparent;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #64ffda, #4a90e2, #9b59b6, #64ffda);
+        background-size: 400%;
+        border-radius: 6px;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.3s;
+        animation: glowing 3s linear infinite;
+    }
+
+    @keyframes glowing {
+        0% { background-position: 0 0; }
+        50% { background-position: 400% 0; }
+        100% { background-position: 0 0; }
+    }
+
+    .project-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(100, 255, 218, 0.1),
+            transparent
+        );
+        background-size: 1000px 100%;
+        animation: shimmer 3s infinite;
+        pointer-events: none;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: -1000px 0; }
+        100% { background-position: 1000px 0; }
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+        border-color: rgba(100, 255, 218, 0.3);
+    }
+
+    .project-card:hover::before {
+        opacity: 1;
+        filter: blur(10px);
+    }
+
+    /* Top Folder & Links */
+    .project-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    .folder-icon {
+        color: #64ffda;
+        font-size: 40px;
+        transition: all 0.6s ease;
+    }
+
+    .project-card:hover .folder-icon {
+        animation: rotate3d 0.6s ease;
+    }
+
+    @keyframes rotate3d {
+        0% { transform: rotateY(0deg); }
+        50% { transform: rotateY(180deg) scale(1.2); }
+        100% { transform: rotateY(360deg); }
+    }
+    .project-links a {
+        color: #a8b2d1;
+        font-size: 22px;
+        margin-left: 12px;
+        transition: all 0.3s ease;
+    }
+    .project-links a:hover {
+        color: #64ffda;
+        filter: drop-shadow(0 0 8px #64ffda);
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Title & Desc */
+    .project-title {
+        color: #ccd6f6;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        transition: color 0.3s;
+    }
+    .project-card:hover .project-title { color: #64ffda; }
+    
+    .project-desc {
+        color: #8892b0;
+        font-size: 15px;
+        line-height: 1.6;
+        background: transparent;
+    }
+    .project-desc strong { color: #ccd6f6; font-weight: 600; }
+
+    /* Tech Stack Chips */
+    .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 25px;
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+    }
+    .tech-stack span {
+        color: #64ffda;
+        background: rgba(100, 255, 218, 0.07);
+        padding: 4px 10px;
+        border-radius: 50px;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+        cursor: pointer;
+    }
+    .tech-stack span:hover {
+        background: rgba(100, 255, 218, 0.25);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 8px 15px rgba(100, 255, 218, 0.3);
+    }
+
+    /* --- NEW CONTACT SECTION STYLES --- */
+    .contact {
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(rgba(100, 255, 218, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(100, 255, 218, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: gridMove 20s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes gridMove {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    .contact-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .floating-icon {
+        position: absolute;
+        color: #64ffda;
+        opacity: 0.4;
+        font-size: 24px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(1) {
+        top: -30px;
+        left: -50px;
+        animation-delay: 0s;
+    }
+
+    .floating-icon:nth-child(2) {
+        top: -30px;
+        right: -50px;
+        animation-delay: 0.5s;
+    }
+
+    .floating-icon:nth-child(3) {
+        bottom: -30px;
+        left: -50px;
+        animation-delay: 1s;
+    }
+
+    .floating-icon:nth-child(4) {
+        bottom: -30px;
+        right: -50px;
+        animation-delay: 1.5s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+            opacity: 0.4;
+        }
+        50% {
+            transform: translateY(-20px);
+            opacity: 0.8;
+        }
+    }
+
+    .contact-details-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+    }
+
+    .contact-detail-card {
+        background: rgba(17, 34, 64, 0.8);
+        border: 1px solid rgba(100, 255, 218, 0.2);
+        border-radius: 8px;
+        padding: 20px 30px;
+        min-width: 200px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .contact-detail-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        padding: 2px;
+        background: linear-gradient(45deg, #64ffda, transparent);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .contact-detail-card:hover::before {
+        opacity: 1;
+    }
+
+    .contact-detail-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(100, 255, 218, 0.2);
+    }
+
+    .contact-detail-card i {
+        color: #64ffda;
+        margin-right: 10px;
+        font-size: 20px;
+        animation: iconGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes iconGlow {
+        0%, 100% {
+            filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.5));
+        }
+        50% {
+            filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.8));
+        }
+    }
+
+    .contact-detail-card p {
+        color: #8892b0;
+        font-size: 14px;
+        font-family: 'Fira Code', monospace;
+        margin: 0;
+    }
+
+    .section-title p::after {
+        content: '|';
+        color: #64ffda;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    
+    .btn-contact {
+        color: #64ffda;
+        background-color: transparent;
+        border: 2px solid #64ffda;
+        border-radius: 4px;
+        padding: 1.25rem 3rem;
+        font-size: 14px;
+        font-family: "Fira Code", monospace;
+        line-height: 1;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        display: inline-block;
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.3), transparent);
+        transition: left 0.5s;
+    }
+
+    .btn-contact:hover::before {
+        left: 100%;
+    }
+
+    .btn-contact:hover {
+        background-color: rgba(100, 255, 218, 0.1);
+        transform: translateY(-3px);
+        text-decoration: none;
+        color: #64ffda;
+        box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.5);
+    }
+
+    .btn-contact:active {
+        transform: translateY(-1px);
+    }
+
+    .btn-contact::after {
+        content: '→';
+        margin-left: 10px;
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    .btn-contact:hover::after {
+        transform: translateX(5px);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+  </div>
+
+  <header id="header" class="header-tops">
+    <div class="container">
+
+      <h1><a href="index.html">A.VenkataSantosh</a></h1>
+      <h2>I'm a <span> <span class="santuelement"></span> </span> </h2>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/venkatasantosh/" target="_blank" class="fa fa-linkedin"></a>
+        <a href="https://github.com/santu-1506" target="_blank" class="fa fa-github"></a>
+        <a href="https://www.instagram.com/santu_0032/" target="_blank" class="fa fa-instagram"></a>
+      </div>
+
+    </div>
+  </header>
+  
+  <section id="about" class="about">
+    <div class="about-me container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p>Get to Know Me</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="assets/img/photo.jpeg" class="img-fluid" alt="Santu Profile" style="border-radius: 8px; box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Full Stack Developer & Cloud Engineer</h3>
+          <p class="font-italic">
+            I am a Computer Science undergraduate at <strong>Keshav Memorial Institute of Technology</strong> with production experience in <strong>Full Stack Engineering</strong> and <strong>Cloud DevOps</strong>. 
+            I specialize in architecting scalable solutions using the <strong>MERN stack, Docker, and GCP</strong>, with a focus on robust applications for <strong>healthcare and genomic data analysis</strong>.
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Hyderabad, India</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +91 6302631469</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> atlurivenkat1@gmail.com</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="icofont-rounded-right"></i> <strong>Degree:</strong> B.Tech (CSE)</li>
+                <li><i class="icofont-rounded-right"></i> <strong>CGPA:</strong> 8.35/10</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Interest:</strong> Cloud & AI</li>
+              </ul>
+            </div>
+          </div>
+          <p>
+             My work bridges the gap between secure infrastructure and AI integration, demonstrated by a proven track record of <strong>reducing deployment failures by 90%</strong> through automated CI/CD pipelines.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-me container" style="margin-top: 50px;">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Technical Skills</h2>
+      </div>
+      <ul class="skills-list" data-aos="fade-up">
+        <li>
+          <strong>Full-Stack Engineering:</strong><br>
+          <p class="font-italic">
+            Expertise in the MERN ecosystem (React, Node.js, Express, MongoDB) and Next.js. 
+            Proven ability to build enterprise-grade dashboards and secure authentication systems using <strong>JWT and Role-Based Access Control (RBAC)</strong>.
+          </p>
+        </li>
+        <li>
+          <strong>DevOps & Cloud Infrastructure:</strong><br>
+          <p class="font-italic">
+            Production experience with <strong>Google Cloud Platform (GCP)</strong> and <strong>Docker</strong>. 
+            Skilled in designing CI/CD pipelines with <strong>GitHub Actions</strong> to automate deployments, significantly reducing manual errors and downtime.
+          </p>
+        </li>
+        <li>
+          <strong>AI & Machine Learning:</strong><br>
+          <p class="font-italic">
+            Experience deploying deep learning models using <strong>PyTorch, TensorFlow, and FastAPI</strong>. 
+            Specialized in integrating LLMs (OpenAI API) and computer vision models (EfficientNet) into real-time web applications.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>My Professional Journey</p>
+      </div>
+
+      <div class="row mb-4" data-aos="fade-up">
+        <div class="col-12 text-center">
+            <a href="https://tinyurl.com/VenkataSantosh" target="_blank" class="btn-resume">
+                <i class="bx bx-download"></i> Download Full Resume
+            </a>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+            <h4>B.Tech in Computer Science & Engineering</h4>
+            <h5>2023 - 2027</h5>
+            <p><em>Keshav Memorial Institute of Technology (KMIT), Hyderabad</em></p>
+            <p><strong>CGPA: 8.35/10</strong></p>
+            <p>Relevant Coursework: Data Structures, Algorithms, DBMS, AI/ML, Cloud Computing.</p>
+          </div>
+
+          <h3 class="resume-title">Achievements</h3>
+          <div class="resume-item">
+            <ul>
+              <li><strong>Project School Certifications:</strong> Awarded by KMIT in 2024 and 2025.</li>
+              <li><strong>Deployment Success:</strong> Achieved a 90% reduction in deployment failures via CI/CD pipelines.</li>
+              <li><strong>Hackathon Participant:</strong> Demux 2.0 Hackathon (Sep 2025) at BVRIT.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="resume-title">Professional Experience</h3>
+          
+          <div class="resume-item">
+            <h4>Web Development Intern</h4>
+            <h5>Sep 2023 - Present</h5>
+            <p><em>Keshav Memorial Institute of Technology, Hyderabad</em></p>
+            <ul>
+              <li><strong>DevOps Automation:</strong> Designed and implemented CI/CD pipelines using GitHub Actions and Docker, reducing manual deployment errors and improving release reliability.</li>
+              <li><strong>UI Component Library:</strong> Built a reusable Flutter UI component library adopted across multiple modules, ensuring consistency and reducing rework.</li>
+              <li><strong>Workflow Optimization:</strong> Automated backend data preprocessing using Python scripts, saving several hours of manual effort weekly.</li>
+            </ul>
+          </div>
+          
+          <div class="resume-item">
+            <h4>Full Stack Developer (Freelance)</h4>
+            <h5>Jan 2023 - May 2023</h5>
+            <p><em>MediTrack, Hyderabad</em></p>
+            <ul>
+              <li><strong>Backend Architecture:</strong> Developed and deployed microservices on Google Cloud Platform (GCP) with REST-based communication.</li>
+              <li><strong>Security Implementation:</strong> Implemented Role-Based Access Control (RBAC) and secure authentication for sensitive patient data across web and mobile platforms.</li>
+              <li><strong>Operational Efficiency:</strong> Digitized hospital intake processes, significantly reducing manual data entry errors and improving efficiency.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      
+      <div class="section-title" data-aos="fade-up">
+        <h2>Projects</h2>
+        <p>Featured Work</p>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-card">
+            <div class="card-content">
+              <div class="project-top">
+                <i class="bx bx-folder folder-icon"></i>
+                <div class="project-links">
+                  <a href="#" title="GitHub Repo"><i class="bx bxl-github"></i></a>
+                  <a href="https://nps2-2.web.app/login" target="_blank" title="Live Demo"><i class="bx bx-link-external"></i></a>
+                </div>
+              </div>
+              <h3 class="project-title">Meditrack</h3>
+              <p class="project-desc">
+                A comprehensive healthcare automation suite. Features a <strong>Flutter</strong> mobile app for nurses to track vitals and a <strong>Node.js/MongoDB</strong> web dashboard for doctors.
+              </p>
+            </div>
+            <div class="tech-stack">
+              <span>Flutter</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+              <span>ReactJs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-card">
+            <div class="card-content">
+              <div class="project-top">
+                <i class="bx bx-folder folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/santu-1506/FinalModel" target="_blank" title="GitHub Repo"><i class="bx bxl-github"></i></a>
+                  <a href="https://crispr-frontend-xi.vercel.app/" target="_blank" title="Live Site"><i class="bx bx-link-external"></i></a>
+                </div>
+              </div>
+              <h3 class="project-title">CRISPR Gene Analysis</h3>
+              <p class="project-desc">
+                Research platform using <strong>Vision Transformers (ViT)</strong> to predict off-target gene editing effects. Visualizes genomic datasets with interactive PostgreSQL dashboards.
+              </p>
+            </div>
+            <div class="tech-stack">
+              <span>Python</span>
+              <span>ViT</span>
+              <span>Docker</span>
+              <span>React</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-card">
+            <div class="card-content">
+              <div class="project-top">
+                <i class="bx bx-folder folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/santu-1506/BlogLog2" target="_blank" title="GitHub Repo"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+              <h3 class="project-title">Blogger Spotted</h3>
+              <p class="project-desc">
+                AI-enhanced blogging platform. Integrates <strong>Bart & Mistral-7B</strong> models for auto-summarization. Secured with Google Cloud OAuth and JWT authentication.
+              </p>
+            </div>
+            <div class="tech-stack">
+              <span>MERN</span>
+              <span>OpenAI API</span>
+              <span>GCP</span>
+              <span>JWT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-card">
+            <div class="card-content">
+              <div class="project-top">
+                <i class="bx bx-folder folder-icon"></i>
+                <div class="project-links">
+                  <a href="https://github.com/santu-1506/DEEPFAKE-DETECTION" target="_blank" title="GitHub Repo"><i class="bx bxl-github"></i></a>
+                </div>
+              </div>
+              <h3 class="project-title">Deepfake Detection</h3>
+              <p class="project-desc">
+                Real-time media verification system. Uses an <strong>EfficientNet CNN</strong> to detect manipulated images/video with < 3s latency via a FastAPI inference service.
+              </p>
+            </div>
+            <div class="tech-stack">
+              <span>PyTorch</span>
+              <span>FastAPI</span>
+              <span>CNN</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2 style="font-size: 50px; color: #ccd6f6; margin-bottom: 20px;">Get In Touch</h2>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                <p style="color: #8892b0; font-size: 18px; line-height: 1.6; margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    I am currently looking for new opportunities, whether it's a full-time position or a freelance project. 
+                    My inbox is always open! Whether you have a question or just want to say hi, I'll try my best to get back to you.
+                </p>
+                
+                <div class="contact-wrapper">
+                    <div class="floating-icon"><i class="bx bx-code-alt"></i></div>
+                    <div class="floating-icon"><i class="bx bx-rocket"></i></div>
+                    <div class="floating-icon"><i class="bx bx-coffee"></i></div>
+                    <div class="floating-icon"><i class="bx bx-bulb"></i></div>
+                    
+                    <a href="mailto:atlurivenkat1@gmail.com" class="btn-contact">
+                        Say Hello
+                    </a>
+                </div>
+                
+                <div class="contact-details-wrapper" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-detail-card">
+                        <i class="bx bx-envelope"></i>
+                        <p>atlurivenkat1@gmail.com</p>
+                    </div>
+                    <div class="contact-detail-card">
+                        <i class="bx bx-phone"></i>
+                        <p>+91 6302631469</p>
+                    </div>
+                    <div class="contact-detail-card">
+                        <i class="bx bx-map"></i>
+                        <p>Hyderabad, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <div class="credits">
+    Designed by <a href="">VenkataSantosh</a>
+  </div>
+
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/typed.js-master/lib/typed.js"></script>
+  
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  </script>
+
+  <!-- Particle Effect Script -->
+  <script>
+    function createParticles(card) {
+        const rect = card.getBoundingClientRect();
+        for(let i = 0; i < 5; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: #64ffda;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${rect.left + Math.random() * rect.width}px;
+                top: ${rect.top + Math.random() * rect.height}px;
+            `;
+            document.body.appendChild(particle);
+            
+            const tx = (Math.random() - 0.5) * 200;
+            const ty = (Math.random() - 0.5) * 200;
+            
+            particle.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'cubic-bezier(0, .9, .57, 1)'
+            }).onfinish = () => particle.remove();
+        }
+    }
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', () => createParticles(card));
+    });
+  </script>
+
+  <!-- Tilt Effect Script -->
+  <script>
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+        });
+    });
+  </script>
+
+  <!-- Ripple Effect Script -->
+  <script>
+    const contactBtn = document.querySelector('.btn-contact');
+    if (contactBtn) {
+        contactBtn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                border-radius: 50%;
+                background: rgba(100, 255, 218, 0.5);
+                left: ${x}px;
+                top: ${y}px;
+                pointer-events: none;
+            `;
+            
+            this.appendChild(ripple);
+            
+            ripple.animate([
+                { transform: 'scale(0)', opacity: 1 },
+                { transform: 'scale(2)', opacity: 0 }
+            ], {
+                duration: 600,
+                easing: 'ease-out'
+            }).onfinish = () => ripple.remove();
+        });
+    }
+  </script>
+  
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // 1. Disable browser scroll restoration (prevents jumping to bottom on refresh)
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // 2. Force window to top on load
+    window.onload = function() {
+      window.scrollTo(0, 0);
+      
+      // Optional: Ensure it stays at top even after loader disappears
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 100);
+    };
+
+    // 3. Reset on unload (extra safety)
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    };
+  </script>
+
+</body>
+</html>
