@@ -326,6 +326,14 @@ section.section-show {
   padding-bottom: 45px;
 }
 
+/* Make first section visible on page load */
+section:first-of-type {
+  top: 100px;
+  bottom: auto;
+  opacity: 1;
+  padding-bottom: 45px;
+}
+
 section .container {
   background: rgba(0, 0, 0, 0.9);
   padding: 30px;
