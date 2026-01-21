@@ -11,7 +11,7 @@ $(document).ready(function () {
 // Typed.js
 if ($('.santuelement').length) {
   var typed = new Typed('.santuelement', {
-    strings: ["Student", "Full Stack Developer", "AI Enthusiast", "KMITian"],
+    strings: ["Aspiring Software Engineer","Full Stack Developer","AI Explorer","Problem Solver","Tech Innovator"],
     typeSpeed: 100,
     loop: true,
     backDelay: 1100,
@@ -161,5 +161,6 @@ if ($('.santuelement').length) {
   });
 
 })(jQuery);
+
 
 
