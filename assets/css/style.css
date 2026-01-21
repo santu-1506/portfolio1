@@ -308,27 +308,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* --- NEW CODE --- */
 section {
-  overflow: hidden;
-  position: absolute;
+  position: relative; /* Allows sections to stack normally */
   width: 100%;
-  top: 140px;
-  bottom: 100%;
-  opacity: 0;
-  transition: ease-in-out 0.4s;
-  z-index: -1;
-  pointer-events: none;
-  visibility: hidden;
+  height: auto;
+  padding: 100px 0 60px 0; /* Adds spacing so header doesn't overlap */
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  pointer-events: auto;
+  overflow: visible; /* Prevents cutting off content */
 }
 
-section.section-show {
-  top: 100px;
-  bottom: auto;
-  opacity: 1;
-  padding-bottom: 45px;
-  z-index: 2;
-  pointer-events: auto;
-  visibility: visible;
+/* Ensure the header text is readable */
+.section-title h2 {
+    color: #fff; 
+    position: relative;
+    z-index: 2;
 }
 
 /* Make first section visible on page load */
